@@ -1,0 +1,216 @@
+//q2
+/*const express = require('express');
+const app = express();
+
+app.get('/year', function (req, res) {
+  res.send(String(Number(2021) - Number(req.query.age)));
+});
+
+app.listen(8000);
+//q3
+var express = require('express')
+var app = express()
+app.get('/home', function(req, res) {
+  res.end('Hello World!')
+})
+app.listen(2000);
+
+//q1
+var express=require('express');
+var app=express();
+app.get('/uppercase/:theValue', (req, res) => res.send(req.params.theValue.toUpperCase()))
+
+
+app.listen(1000);
+//q4
+var express=require('express');
+
+var app=express();
+
+app.get('/time',(req,res)=>{
+
+res.send( {date: new Date().toDateString()})
+});
+
+app.listen(6000);*/
+
+const express = require('express');
+const bodyparser = require('body-parser');
+const app = express();
+
+//const portNumber = process.argv[2]
+
+app.use(bodyparser.urlencoded({extended: false}));
+
+app.post('/form', (req, res) => {
+  let reverse = req.body.str.split('').reverse().join('')
+  res.end(reverse)
+})
+
+app.listen(7000); 
+
+
+
+/*var http=require('http');
+
+var server=http.createServer(function(req,res){
+    res.writeHead(200,{'Content-Type':'text/plain'});
+    res.end('success, i am listening from port 3000');
+});
+server.listen(3000,'127.0.0.1');
+console.log("hey guys!");
+
+var fs=require('fs');
+
+var data=fs.writeFile('read.txt','hello there!','utf8',function(err){
+    if(err) throw error;
+    console.log("file written");
+});
+
+var fs=require('fs');
+
+var data=fs.readFile('read.txt','utf8',function(err,data){
+    console.log(data);
+});
+
+module.exports.sum=function(a,b){
+    return a+b;
+
+}
+module.exports.mul=function(x,y){
+    return x*y;
+}
+
+
+
+const dateObj = new Date();
+console.log(`Date: ${dateObj.toDateString()}`);
+console.log(`Time: ${dateObj.toTimeString()}`);
+
+var fs = require('fs');
+var array = fs.readFileSync('read.txt').toString().split("\n");
+for(i in array) {
+    console.log(array[i]);
+}
+
+
+var fs=require('fs');
+
+var data=fs.writeFile('read.txt','it is a new way to the topn','utf8',function(err){
+    if(err) throw error;
+    console.log("file written");
+});
+
+var fs=require('fs');
+
+var data=fs.readFile('read.txt','utf8',function(err,data){
+    console.log(data);
+});
+
+console.log('hello '+process.argv[2]);
+
+
+var fs = require('fs');
+var array = fs.readFileSync('read.txt').toString().split("\n");
+for(i in array) {
+    console.log([array[i]);
+}
+var express=require('express');
+
+var app=express();
+
+app.get('/',function(req,res){
+    res.send('hello world')
+    console.log('executed');
+});
+
+
+app.get('/',function(req,res){
+    req.header("Hello world")
+});
+ 
+app.listen(9000);
+
+
+var express=require('express');
+
+var app=express();
+
+app.get('/',(req,res)=>{
+    res.sendFile(__dirname,'/index.html');
+});
+
+app.listen(2000);
+
+
+const express = require('express');
+const app = express();
+
+app.get('/age', function (req, res) {
+  res.send(String(Number(req.query.age) - Number(2021)));
+});
+
+app.listen(8080);*/
+
+const express = require('express')
+const app = express()
+app.use(express.static('public'))
+
+app.listen(3000, () => console.log('Server ready'))
+
+
+
+/*var server=require('http');
+
+server.createServer(engine).listen(3000);
+
+function engine(request,response){
+    response.writeHead(200,{'content-Type':'text/plain'});
+    response.end('success, Im listening from poert:3000')
+    console.log("this is new server code")
+}*/
+
+var http=require('http');
+
+var server=http.createServer(function(req,res){
+    res.writeHead(200,{'Content-Type':'text/plain'});
+    res.end('success, i am listening from port 3000');
+});
+server.listen(3000,'127.0.0.1');
+console.log("hey guys!");
+
+
+
+const bodyparser=require('body-parser');
+const express=require('express');
+
+const route=require('./api');
+
+const app=express();
+
+app.use(bodyparser.json());
+
+app.use('/api',route);
+
+app.listen(process.env.port||1000,function(){
+    console.log("now listening");
+});
+
+/*var server=require('http');
+
+server.createServer(engine).listen(3000);
+
+function engine(request,response){
+    response.writeHead(200,{'content-Type':'text/plain'});
+    response.end('success, Im listening from poert:3000')
+    console.log("this is new server code")
+}*/
+
+var http=require('http');
+
+var server=http.createServer(function(req,res){
+    res.writeHead(200,{'Content-Type':'text/plain'});
+    res.end('success, i am listening from port 3000');
+});
+server.listen(3000,'127.0.0.1');
+console.log("hey guys!");
